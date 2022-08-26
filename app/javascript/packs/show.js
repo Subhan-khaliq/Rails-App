@@ -1,4 +1,4 @@
-var form = document.getElementById("form-id");
-document.getElementById("your-id").addEventListener("click", function () {
+var form = document.getElementById("users");
+document.getElementById("show").addEventListener("click", function () {
   form.submit();
 });
