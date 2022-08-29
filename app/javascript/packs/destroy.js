@@ -15,6 +15,7 @@
 // });
 $(".remove_user").on("click", function(){
   alert("I am Clicked!")
+  debugger
   if(confirm("Are you sure?")){
        $(this).closest('tr').delay().fadeOut();
    } else{
