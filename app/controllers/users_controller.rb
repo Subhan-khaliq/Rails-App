@@ -3,13 +3,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
+
   # GET /users or /users.json
   def index
     @users = User.all
   end
 
   # GET /users/1 or /users/1.json
-  def show; end
+  def show
+    # @user = User.find(params[:id])
+  end
 
   # GET /users/new
   def new
@@ -27,7 +30,6 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
 
-
       else
         format.html { render :new, status: :unprocessable_entity }
 
@@ -35,7 +37,6 @@ class UsersController < ApplicationController
       format.js
     end
   end
-
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
@@ -46,7 +47,6 @@ class UsersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.js { render layout: false }
       end
-
     end
   end
 
@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.js   { render layout: false }
+      format.json { render json: @user }
     end
   end
 
