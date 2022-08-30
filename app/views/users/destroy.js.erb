@@ -1,7 +1,9 @@
 $('.remove_user').bind('ajax:success', function() {
-	$(this).closest('tr').remove();
+	<%# id  %>
+	<%# $(this).closest('tr').remove(); %>
 });
+<%# $(".remove_user").click(function(){
+$(this).closest('tr').remove();
+}); %>
 
 
-
-<%# submit rails form using javascript %>

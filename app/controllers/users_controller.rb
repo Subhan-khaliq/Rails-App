@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  skip_before_action :verify_authenticity_token, only: %i[destroy]
 
 
   # GET /users or /users.json
@@ -52,11 +53,13 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    # byebug
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.js   { render layout: false }
-      format.json { render json: @user }
+
+      # format.js   { render layout: false }
+
     end
   end
 
