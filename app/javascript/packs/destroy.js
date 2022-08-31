@@ -1,6 +1,8 @@
 $(".remove_user").on("click",function(event){
   // debugger
   var user_id = $(this).data('id');
+  var row = $(this);
+
   // alert(user_id);
   event.preventDefault();
 
@@ -11,9 +13,7 @@ $(".remove_user").on("click",function(event){
       dataType: "script",
       data: {"_method":"delete"},
       success: function() {
-        debugger
-
-        $(".remove_user").closest('tr').remove();
+        $(row).closest("tr").remove();
 
     },
       error: function() {
@@ -22,16 +22,3 @@ $(".remove_user").on("click",function(event){
 });
 
 });
-
-
-// $(".remove_user").on("click", function(){
-//   alert("I am Clicked!");
-//   debugger
-//   if(confirm("Are you sure?")){
-//        $(this).closest('tr').delay().fadeOut();
-//    } else{
-//       return false;
-//   }
-// });
-
-

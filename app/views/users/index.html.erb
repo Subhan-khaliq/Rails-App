@@ -19,7 +19,7 @@
         <td><%= user.bio %></td>
         <td><%= link_to 'Show', user%></td>
         <td><%= link_to 'Edit', edit_user_path(user)%></td>
-        <td><%= link_to 'Destroy',user, class: "remove_user user_remove", data: {id: user.id }%></td>
+        <td><%= link_to 'Destroy',user, class: "remove_user", data: {id: user.id }%></td>
       </tr>
     <% end %>
   </tbody>

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token, only: %i[destroy]
 
-
   # GET /users or /users.json
   def index
     @users = User.all
@@ -38,16 +37,16 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
-        format.js { render layout: false }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.js { render layout: false }
       end
+      format.js { render layout: false }
     end
   end
 
@@ -56,10 +55,9 @@ class UsersController < ApplicationController
     # byebug
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { render notice: 'User was successfully destroyed.' }
 
-      # format.js   { render layout: false }
-
+      format.js
     end
   end
 
